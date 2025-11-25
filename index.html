@@ -1,13 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>ABC Fitness Studio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Fonts */
+        body {
+            font-family: Calibri, Arial, sans-serif; /* Body text in Calibri */
+            color: #00231C; /* Detritus Green */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: Arial, sans-serif; /* Headings in Arial */
+        }
+
+        header {
+            background-color: #1E1B1C; /* Barbell Black */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            width: 120px;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #AE232D; /* Cardio Crimson hover */
+        }
+
+        h2 {
+            color: #AE232D; /* Cardio Crimson */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #519c4f; /* Gains Green */
+            color: #FFFFFF;
+            margin: 5px 0;
+            padding: 5px;
+            width: fit-content;
+        }
+
+        footer {
+            background-color: #fffcee; /* Ivory Incline */
+            color: #00231C;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer input {
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        footer button {
+            padding: 5px 10px;
+            background-color: #AE232D;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer button:hover {
+            background-color: #519c4f;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        img.product {
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" width="120" alt="Logo">
+    <img src="logo.png" alt="ABC Fitness Studio Logo">
     <h1>ABC Fitness Studio</h1>
     <nav>
         <a href="index.html">Home</a> |
@@ -17,30 +104,40 @@
     </nav>
 </header>
 
-<h2>Fitness Highlights</h2>
-<p>Yoga, Pilates, Zumba, Strength Training</p>
+<section>
+    <h2>Fitness Highlights</h2>
+    <p>Yoga, Pilates, Zumba, Strength Training</p>
+</section>
 
-<h2>Promos</h2>
-<p>20% off accessories this week!</p>
+<section>
+    <h2>Promos</h2>
+    <p>20% off accessories this week!</p>
+</section>
 
-<h2>Featured Products</h2>
-<p>Product 1 image here</p>
-<p>Product 2 image here</p>
-<p>Product 3 image here</p>
+<section>
+    <h2>Featured Products</h2>
+    <img class="product" src="img1.jpg" alt="Product 1">
+    <img class="product" src="img2.jpg" alt="Product 2">
+    <img class="product" src="img3.jpg" alt="Product 3">
+</section>
 
-<h2>Shopping Perks</h2>
-<ul>
-    <li>Fast Shipping</li>
-    <li>Eco-Friendly Materials</li>
-    <li>High Quality Gear</li>
-</ul>
+<section>
+    <h2>Shopping Perks</h2>
+    <ul>
+        <li>Fast Shipping</li>
+        <li>Eco-Friendly Materials</li>
+        <li>High Quality Gear</li>
+    </ul>
+</section>
 
-<h2>Categories</h2>
-<ul>
-    <li>Mats</li>
-    <li>Weights</li>
-    <li>Resistance Bands</li>
-</ul>
+<section>
+    <h2>Categories</h2>
+    <ul>
+        <li>Mats</li>
+        <li>Weights</li>
+        <li>Resistance Bands</li>
+    </ul>
+</section>
 
 <footer>
     <p>Subscribe to our newsletter</p>
