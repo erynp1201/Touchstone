@@ -3,41 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Gallery - ABC Fitness Studio</title>
+
     <style>
         body {
-            font-family: Calibri, Arial, sans-serif; /* Calibri */
+            font-family: Calibri, Arial, sans-serif;
             color: #00231C; /* Detritus Green */
             margin: 0;
             padding: 0;
-        }
-
-        h1, h2, h3 {
-            font-family: Arial, sans-serif; /* Arial */
+            background-color: #FFFFFF;
         }
 
         header {
-            background-color: #FFFCEE; /* Ivory Inclinelight background */
-            color: #FFFFFF;
+            background-color: #FFFCEE; /* Ivory */
+            color: #00231C;
             text-align: center;
             padding: 20px;
+            border-bottom: 2px solid #AE232D;
         }
 
         header img {
-            width: 120px;
+            width: 140px;
         }
 
-     nav a {
-    color: #00231C; /* Detritus Green */
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+        nav a {
+            color: #00231C;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
 
         nav a:hover {
-            color: #AE232D; /* Cardio Crimson hover */
+            color: #AE232D;
         }
 
         h2 {
-            color: #AE232D; /* Cardio Crimson */
+            font-family: Arial, sans-serif;
+            color: #00231C;
+            text-align: center;
+        }
+
+        .cart-button {
+            display: block;
+            margin: 20px auto;
+            background-color: #AE232D;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background-color: #519C4F; /* Gains Green */
         }
 
         table {
@@ -48,15 +64,16 @@
         td {
             padding: 10px;
             text-align: center;
-            border: 1px solid #1E1B1C;
+            border: 1px solid #519C4F; /* Gains Green border */
+            background-color: #FFFCEE;
         }
 
         img.product {
-            width: 100px;
-            margin-bottom: 5px;
+            width: 120px;
+            margin-bottom: 10px;
         }
 
-        button {
+        button.add {
             background-color: #AE232D;
             color: #FFFFFF;
             border: none;
@@ -64,29 +81,40 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #519c4f; /* Gains Green hover */
+        button.add:hover {
+            background-color: #519C4F;
         }
 
         footer {
-            background-color: #fffcee; /* Ivory Incline */
+            background-color: #FFFCEE;
             color: #00231C;
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         footer input {
             padding: 5px;
-            margin-right: 5px;
+        }
+
+        footer button {
+            background-color: #AE232D;
+            color: #FFFFFF;
+            border: none;
+            padding: 5px 10px;
+        }
+
+        footer button:hover {
+            background-color: #519C4F;
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <img src="logo.png" alt="ABC Fitness Studio Logo">
-    <h1>Gallery</h1>
+    <h1>Our Shop Gallery</h1>
     <nav>
         <a href="index.html">Home</a> |
         <a href="gallery.html">Gallery</a> |
@@ -95,34 +123,59 @@
     </nav>
 </header>
 
-<section>
-    <button>View Shopping Cart</button>
-</section>
+<button class="cart-button">View Shopping Cart</button>
 
-<section>
-    <h2>Our Products</h2>
-    <table>
-        <tr>
-            <td>
-                <img class="product" src="Client2_YogaMat.png" alt="Product 1"><br>
-                <button>Add to Cart</button>
-            </td>
-            <td>
-                <img class="product" src="Client2_WaterBottle.png" alt="Product 2"><br>
-                <button>Add to Cart</button>
-            </td>
-            <td>
-                <img class="product" src="Client2_TeeShirt.png" alt="Product 3"><br>
-                <button>Add to Cart</button>
-            </td>
-        </tr>
-    </table>
-</section>
+<h2>Products</h2>
+
+<table>
+    <tr>
+        <td>
+            <img class="product" src="img1.jpg" alt="Product 1"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+        <td>
+            <img class="product" src="img2.jpg" alt="Product 2"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+        <td>
+            <img class="product" src="img3.jpg" alt="Product 3"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img class="product" src="img4.jpg" alt="Product 4"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+        <td>
+            <img class="product" src="img5.jpg" alt="Product 5"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+        <td>
+            <img class="product" src="img6.jpg" alt="Product 6"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img class="product" src="img7.jpg" alt="Product 7"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+        <td>
+            <img class="product" src="img8.jpg" alt="Product 8"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+        <td>
+            <img class="product" src="img9.jpg" alt="Product 9"><br>
+            <button class="add">Add to Cart</button>
+        </td>
+    </tr>
+</table>
 
 <footer>
     <p>Subscribe to our newsletter</p>
     <input type="email" placeholder="Your email">
-    <button>Subscribe</button>
+    <button>Subscribe</button>  
 </footer>
 
 </body>
