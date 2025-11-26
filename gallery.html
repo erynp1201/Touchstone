@@ -14,7 +14,7 @@
         }
 
         header {
-            background-color: #FFFCEE; /* Ivory */
+            background-color: #FFFCEE; 
             color: #00231C;
             text-align: center;
             padding: 20px;
@@ -38,7 +38,6 @@
 
         h2 {
             font-family: Arial, sans-serif;
-            color: #00231C;
             text-align: center;
         }
 
@@ -46,14 +45,14 @@
             display: block;
             margin: 20px auto;
             background-color: #AE232D;
-            color: #FFFFFF;
+            color: white;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
         }
 
         .cart-button:hover {
-            background-color: #519C4F; /* Gains Green */
+            background-color: #519C4F;
         }
 
         table {
@@ -64,7 +63,7 @@
         td {
             padding: 10px;
             text-align: center;
-            border: 1px solid #519C4F; /* Gains Green border */
+            border: 1px solid #519C4F;
             background-color: #FFFCEE;
         }
 
@@ -75,7 +74,7 @@
 
         button.add {
             background-color: #AE232D;
-            color: #FFFFFF;
+            color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
@@ -85,16 +84,38 @@
             background-color: #519C4F;
         }
 
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background: #FFFCEE;
+            color: #00231C;
+            width: 60%;
+            margin: 80px auto;
+            padding: 20px;
+            border: 2px solid #519C4F;
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
         footer {
             background-color: #FFFCEE;
             color: #00231C;
             text-align: center;
             padding: 20px;
             margin-top: 30px;
-        }
-
-        footer input {
-            padding: 5px;
         }
 
         footer button {
@@ -123,7 +144,7 @@
     </nav>
 </header>
 
-<button class="cart-button">View Shopping Cart</button>
+<button class="cart-button" id="viewCartBtn">View Shopping Cart</button>
 
 <h2>Products</h2>
 
@@ -131,49 +152,111 @@
     <tr>
         <td>
             <img class="product" src="Client2_TeeShirt.png" alt="T Shirt"><br>
-            <button class="add">Add to Cart</button>
+            <button class="add" data-item="T-Shirt">Add to Cart</button>
         </td>
         <td>
             <img class="product" src="Client2_WaterBottle.png" alt="Water Bottle"><br>
-            <button class="add">Add to Cart</button>
+            <button class="add" data-item="Water Bottle">Add to Cart</button>
         </td>
         <td>
             <img class="product" src="Client2_YogaMat.png" alt="Yoga Mat"><br>
-            <button class="add">Add to Cart</button>
+            <button class="add" data-item="Yoga Mat">Add to Cart</button>
         </td>
         <td>
-            <img class="product" src="Client2_IndividualYoga.png" alt="T Shirt"><br>
-            <button class="add">Add to Cart</button>
+            <img class="product" src="Client2_IndividualYoga.png" alt="Individual Yoga"><br>
+            <button class="add" data-item="Individual Yoga Session">Add to Cart</button>
         </td>
         <td>
-            <img class="product" src="Client2_IndividualPilates.png" alt="Water Bottle"><br>
-            <button class="add">Add to Cart</button>
+            <img class="product" src="Client2_IndividualPilates.png" alt="Individual Pilates"><br>
+            <button class="add" data-item="Individual Pilates Session">Add to Cart</button>
         </td>
         <td>
-            <img class="product" src="Client2_IndividualKickboxing.png" alt="Yoga Mat"><br>
-            <button class="add">Add to Cart</button>
+            <img class="product" src="Client2_IndividualKickboxing.png" alt="Kickboxing"><br>
+            <button class="add" data-item="Individual Kickboxing Session">Add to Cart</button>
         </td>
         <td>
-            <img class="product" src="Client2_GroupYoga.png" alt="T Shirt"><br>
-            <button class="add">Add to Cart</button>
+            <img class="product" src="Client2_GroupYoga.png" alt="Group Yoga"><br>
+            <button class="add" data-item="Group Yoga Class">Add to Cart</button>
         </td>
         <td>
-            <img class="product" src="Client2_GroupPilates.png" alt="Water Bottle"><br>
-            <button class="add">Add to Cart</button>
+            <img class="product" src="Client2_GroupPilates.png" alt="Group Pilates"><br>
+            <button class="add" data-item="Group Pilates Class">Add to Cart</button>
         </td>
         <td>
-            <img class="product" src="Client2_GroupKickboxing.png" alt="Yoga Mat"><br>
-            <button class="add">Add to Cart</button>
+            <img class="product" src="Client2_GroupKickboxing.png" alt="Group Kickboxing"><br>
+            <button class="add" data-item="Group Kickboxing Class">Add to Cart</button>
         </td>
     </tr>
-    <tr>
 </table>
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
+    <div class="modal-content">
+        <span class="close" id="closeCart">&times;</span>
+        <h2>Your Cart</h2>
+        <ul id="cartItems"></ul>
+
+        <button id="clearCartBtn">Clear Cart</button>
+        <button id="processOrderBtn">Process Order</button>
+    </div>
+</div>
 
 <footer>
     <p>Subscribe to our newsletter</p>
     <input type="email" placeholder="Your email">
     <button>Subscribe</button>  
 </footer>
+
+<script>
+    let cart = [];
+
+    // Add to Cart buttons
+    document.querySelectorAll(".add").forEach(btn => {
+        btn.addEventListener("click", function() {
+            let item = this.getAttribute("data-item");
+            cart.push(item);
+            alert("Item added.");
+        });
+    });
+
+    // Modal Behavior
+    let modal = document.getElementById("cartModal");
+    let viewCartBtn = document.getElementById("viewCartBtn");
+    let closeCart = document.getElementById("closeCart");
+    let cartItems = document.getElementById("cartItems");
+
+    viewCartBtn.onclick = function() {
+        cartItems.innerHTML = "";
+        cart.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = item;
+            cartItems.appendChild(li);
+        });
+        modal.style.display = "block";
+    };
+
+    closeCart.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // Clear Cart
+    document.getElementById("clearCartBtn").onclick = function() {
+        cart = [];
+        cartItems.innerHTML = "";
+    };
+
+    // Process Order
+    document.getElementById("processOrderBtn").onclick = function() {
+        alert("Thank you for your order.");
+    };
+
+    // Close modal if user clicks outside content
+    window.onclick = function(e) {
+        if (e.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>
 
 </body>
 </html>
