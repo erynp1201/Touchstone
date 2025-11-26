@@ -2,96 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ABC Fitness Studio</title>
-       body {
-            font-family: Calibri, Arial, sans-serif; /* Calibri */
+    <title>ABC Fitness Studio - Home</title>
+
+    <style>
+        body {
+            font-family: Calibri, Arial, sans-serif; 
             color: #00231C; /* Detritus Green */
             margin: 0;
             padding: 0;
-        }
-
-        h1, h2, h3 {
-            font-family: Arial, sans-serif; /* Arial */
+            background-color: #FFFFFF;
         }
 
         header {
-            background-color: #FFFCEE; /* Ivory Inclinelight background */
-            color: #FFFFFF;
+            background-color: #FFFCEE; /* Ivory */
+            color: #00231C; /* Detritus Green text */
             text-align: center;
             padding: 20px;
+            border-bottom: 2px solid #AE232D; /* Crimson line */
         }
 
         header img {
-            width: 120px;
+            width: 140px;
         }
 
-     nav a {
-    color: #00231C; /* Detritus Green */
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+        nav a {
+            color: #00231C; /* Detritus Green */
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
         nav a:hover {
-            color: #AE232D; /* Cardio Crimson hover */
+            color: #AE232D; /* Crimson hover */
         }
 
         h2 {
-            color: #AE232D; /* Cardio Crimson */
+            font-family: Arial, sans-serif;
+            color: #00231C;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .section-box {
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #519C4F; /* Gains Green */
+            background-color: #FFFCEE;
         }
 
-        ul li {
-            background-color: #519c4f; /* Gains Green */
-            color: #FFFFFF;
-            margin: 5px 0;
-            padding: 5px;
-            width: fit-content;
+        .promo {
+            background-color: #519C4F; /* Gains Green */
+            color: white;
+            padding: 10px;
         }
 
         footer {
-            background-color: #fffcee; /* Ivory Incline */
+            background-color: #FFFCEE;
             color: #00231C;
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         footer input {
             padding: 5px;
-            margin-right: 5px;
         }
 
         footer button {
-            padding: 5px 10px;
             background-color: #AE232D;
             color: #FFFFFF;
             border: none;
-            cursor: pointer;
+            padding: 5px 10px;
         }
 
         footer button:hover {
-            background-color: #519c4f;
-        }
-
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-
-        img.product {
-            width: 100px;
-            margin: 10px;
+            background-color: #519C4F;
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <img src="logo.png" alt="ABC Fitness Studio Logo">
     <h1>ABC Fitness Studio</h1>
+
     <nav>
         <a href="index.html">Home</a> |
         <a href="gallery.html">Gallery</a> |
@@ -100,45 +93,40 @@
     </nav>
 </header>
 
-<section>
-    <h2>Fitness Highlights</h2>
-    <p>Yoga, Pilates, Zumba, Strength Training</p>
+<section class="section-box">
+    <h2>Welcome to ABC Fitness Studio</h2>
+    <p>Your local place for yoga, Pilates, Zumba, and quality fitness equipment.</p>
 </section>
 
-<section>
-    <h2>Promos</h2>
-    <p>20% off accessories this week!!!!</p>
+<section class="section-box promo">
+    <h2>Shopping Promos</h2>
+    <p>Special discounts on selected training equipment all month long!</p>
 </section>
 
-<section>
-    <h2>Featured Products</h2>
-    <img class="product" src="img1.jpg" alt="Product 1">
-    <img class="product" src="img2.jpg" alt="Product 2">
-    <img class="product" src="img3.jpg" alt="Product 3">
-</section>
-
-<section>
-    <h2>Shopping Perks</h2>
+<section class="section-box">
+    <h2>Categories</h2>
     <ul>
-        <li>Fast Shipping</li>
-        <li>Eco-Friendly Materials</li>
-        <li>High Quality Gear</li>
+        <li>Yoga Gear</li>
+        <li>Pilates Equipment</li>
+        <li>Strength Training</li>
+        <li>Cardio Equipment</li>
     </ul>
 </section>
 
-<section>
-    <h2>Categories</h2>
+<section class="section-box">
+    <h2>Fitness Perks</h2>
     <ul>
-        <li>Mats</li>
-        <li>Weights</li>
-        <li>Resistance Bands</li>
+        <li>Free local delivery</li>
+        <li>Certified instructors</li>
+        <li>Community classes</li>
+        <li>Discounts on memberships</li>
     </ul>
 </section>
 
 <footer>
     <p>Subscribe to our newsletter</p>
     <input type="email" placeholder="Your email">
-    <button>Subscribe</button>
+    <button>Subscribe</button>  
 </footer>
 
 </body>
