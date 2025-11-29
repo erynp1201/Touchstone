@@ -42,7 +42,7 @@
 
 <section class="section-box">
     <h2>Feedback & Custom Order Form</h2>
-    <form>
+    <form id="contactForm">
         <label>Your Name:</label>
         <input type="text" placeholder="Enter your name">
 
@@ -59,14 +59,14 @@
         <label>Your Message:</label>
         <textarea rows="5" placeholder="Write your message here"></textarea>
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submitBtn">Submit</button>
     </form>
 </section>
 
 <footer>
     <p>Subscribe to our newsletter</p>
     <input type="email" placeholder="Your email">
-    <button>Subscribe</button>  
+    <button id="subscribeBtn">Subscribe</button>  
 
     <p class="footer-links">
         <a href="index.html">Home</a> |
@@ -81,6 +81,19 @@
         <a href="#">Twitter</a>
     </p>
 </footer>
+
+<script>
+// SUBSCRIBE BUTTON ALERT
+document.getElementById("subscribeBtn").onclick = function () {
+    alert("Thank you for subscribing.");
+};
+
+// CONTACT FORM SUBMIT BUTTON ALERT
+document.getElementById("contactForm").onsubmit = function (event) {
+    event.preventDefault();  // stops page reload
+    alert("Thank you for your message.");
+};
+</script>
 
 </body>
 </html>
