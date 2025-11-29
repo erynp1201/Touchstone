@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Gallery - ABC Fitness Studio</title>
-
-   <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic modal styling */
+        #cartModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        #cartBox {
+            background: white;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -79,7 +94,7 @@
     </tr>
 </table>
 
-<!-- SIMPLE CART MODAL -->
+<!-- CART MODAL -->
 <div id="cartModal">
     <div id="cartBox">
         <h3>Your Cart</h3>
@@ -99,38 +114,65 @@
 </footer>
 
 <script>
-    let cart = [];
+/* -------------------------------
+   LOAD CART FROM SESSION STORAGE
+--------------------------------*/
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-    document.querySelectorAll(".add").forEach(btn => {
-        btn.onclick = function() {
-            cart.push(this.dataset.item);
-            alert("Item added.");
-        };
+/* -------------------------------
+   ADD TO CART
+--------------------------------*/
+document.querySelectorAll(".add").forEach(btn => {
+    btn.onclick = function () {
+        cart.push(this.dataset.item);
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+        alert("Item added to cart!");
+    };
+});
+
+/* -------------------------------
+   VIEW CART
+--------------------------------*/
+document.getElementById("viewCartBtn").onclick = function () {
+    let list = document.getElementById("cartList");
+    list.innerHTML = "";
+
+    let storedCart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+    storedCart.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
     });
 
-    document.getElementById("viewCartBtn").onclick = function() {
-        let list = document.getElementById("cartList");
-        list.innerHTML = "";
-        cart.forEach(item => {
-            let li = document.createElement("li");
-            li.textContent = item;
-            list.appendChild(li);
-        });
-        document.getElementById("cartModal").style.display = "block";
-    };
+    document.getElementById("cartModal").style.display = "block";
+};
 
-    document.getElementById("closeCart").onclick = function() {
-        document.getElementById("cartModal").style.display = "none";
-    };
+/* -------------------------------
+   CLOSE CART
+--------------------------------*/
+document.getElementById("closeCart").onclick = function () {
+    document.getElementById("cartModal").style.display = "none";
+};
 
-    document.getElementById("clearCart").onclick = function() {
-        cart = [];
-        document.getElementById("cartList").innerHTML = "";
-    };
+/* -------------------------------
+   CLEAR CART
+--------------------------------*/
+document.getElementById("clearCart").onclick = function () {
+    sessionStorage.removeItem("cart");
+    cart = [];
+    document.getElementById("cartList").innerHTML = "";
+};
 
-    document.getElementById("processOrder").onclick = function() {
-        alert("Thank you for your order.");
-    };
+/* -------------------------------
+   PROCESS ORDER
+--------------------------------*/
+document.getElementById("processOrder").onclick = function () {
+    alert("Thank you! Your order has been processed.");
+    sessionStorage.removeItem("cart");
+    cart = [];
+    document.getElementById("cartList").innerHTML = "";
+};
 </script>
 
 </body>
