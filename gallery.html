@@ -110,29 +110,32 @@
 <footer>
     <p>Subscribe to our newsletter</p>
     <input type="email" placeholder="Email">
-    <button>Subscribe</button>
+    <button id="subscribeBtn">Subscribe</button>
 </footer>
 
+
 <script>
-/* -------------------------------
+/* ---------------------------------
    LOAD CART FROM SESSION STORAGE
---------------------------------*/
+-----------------------------------*/
 let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-/* -------------------------------
-   ADD TO CART
---------------------------------*/
+/* ---------------------------------
+   ADD TO CART  (Task 3.1 + 3.2)
+-----------------------------------*/
 document.querySelectorAll(".add").forEach(btn => {
     btn.onclick = function () {
         cart.push(this.dataset.item);
         sessionStorage.setItem("cart", JSON.stringify(cart));
-        alert("Item added to cart!");
+
+        // Task 3.1 alert
+        alert("Item added to the cart");
     };
 });
 
-/* -------------------------------
+/* ---------------------------------
    VIEW CART
---------------------------------*/
+-----------------------------------*/
 document.getElementById("viewCartBtn").onclick = function () {
     let list = document.getElementById("cartList");
     list.innerHTML = "";
@@ -148,30 +151,49 @@ document.getElementById("viewCartBtn").onclick = function () {
     document.getElementById("cartModal").style.display = "block";
 };
 
-/* -------------------------------
+/* ---------------------------------
    CLOSE CART
---------------------------------*/
+-----------------------------------*/
 document.getElementById("closeCart").onclick = function () {
     document.getElementById("cartModal").style.display = "none";
 };
 
-/* -------------------------------
-   CLEAR CART
---------------------------------*/
+/* ---------------------------------
+   CLEAR CART (Task 3.1 Alert)
+-----------------------------------*/
 document.getElementById("clearCart").onclick = function () {
+    if (cart.length === 0) {
+        alert("No items to clear.");
+        return;
+    }
+
+    sessionStorage.removeItem("cart");
+    cart = [];
+    document.getElementById("cartList").innerHTML = "";
+
+    alert("Cart cleared");
+};
+
+/* ---------------------------------
+   PROCESS ORDER (Task 3.1 Alert)
+-----------------------------------*/
+document.getElementById("processOrder").onclick = function () {
+    if (cart.length === 0) {
+        alert("Cart is empty.");
+        return;
+    }
+
+    alert("Thank you for your order");
     sessionStorage.removeItem("cart");
     cart = [];
     document.getElementById("cartList").innerHTML = "";
 };
 
-/* -------------------------------
-   PROCESS ORDER
---------------------------------*/
-document.getElementById("processOrder").onclick = function () {
-    alert("Thank you! Your order has been processed.");
-    sessionStorage.removeItem("cart");
-    cart = [];
-    document.getElementById("cartList").innerHTML = "";
+/* ---------------------------------
+   SUBSCRIBE BUTTON (Task 3.1)
+-----------------------------------*/
+document.getElementById("subscribeBtn").onclick = function () {
+    alert("Thank you for subscribing.");
 };
 </script>
 
